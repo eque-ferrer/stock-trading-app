@@ -6,4 +6,5 @@ class User < ApplicationRecord
          #:confirmable
 
   validates :name, presence:true       
+  
 end

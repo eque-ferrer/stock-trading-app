@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
+  get 'stocks/search'
+  post 'stocks/search' => 'stocks#create', as: 'stocks_create'
+
+  get 'stocks/show/:id' => 'stocks#show', as: 'stocks_show'
   get 'home/index'
+
+  # get 'stocks/add'
+  put 'stocks/add/:id' => 'stocks#add', as: 'stocks_add'
 
   devise_for :admins
   devise_for :buyers

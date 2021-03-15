@@ -1,0 +1,15 @@
+<h1>Stocks#search</h1>
+<p>Find me in app/views/stocks/search.html.erb</p>
+
+<h2 class = "">Search Stocks</h2>
+
+<%= form_with method: :post, url: stocks_search_path , local:true do |f| %>  
+  <div class="field">
+    <%= f.label :symbol %><br />
+    <%= f.text_field :symbol %>
+  </div>
+      
+  <div class="actions">
+    <%= f.submit "Search" %>
+  </div>
+<% end %>

@@ -1,0 +1,21 @@
+<h1>Stocks#show</h1>
+<p>Find me in app/views/stocks/show.html.erb</p>
+
+<h1> Current Price: <%= @stock.current_price %> </h1>
+<h2> Stock Symbol: <%= @stock.symbol.upcase %> </h2>
+<h2> Name: <%= @stock.name %> </h2>
+
+<% if buyer_signed_in? %>
+  <% if @stock.users %>
+    <h2> List of Brokers </h2>
+    <% @stock.users.each do |broker| %>
+      <p><%= broker.name %> Buy Stock </p>
+    <% end %>
+  <% end %>
+<% elsif broker_signed_in? %>
+  <% if current_user.stocks.include?(@stock) %>
+    <p> Added stock to list </p>
+  <% else %>
+    <%= link_to "Add this stock to my list", stocks_add_path(@stock), method: :put, class: 'btn btn-success pull-right btn-sm'%>
+  <% end %>
+<% end %>
